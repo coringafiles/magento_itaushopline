@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <boleto_onepage_success>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="letti_checkout.success" template="boleto/onepage/success.phtml"/>
+        </reference>
+    </boleto_onepage_success>
+</layout>

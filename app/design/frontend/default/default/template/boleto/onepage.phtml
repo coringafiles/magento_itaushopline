@@ -1,0 +1,34 @@
+<?php $_code = $this->getMethodCode() ?>
+
+<?php
+$imgBaseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . "frontend/default/default/images/boleto/";
+?>
+<fieldset class="form-list">
+    <ul id="payment_form_<?php echo $_code ?>" style="display:none;">
+        <li class="first">
+            <ul class="boleto-logo">
+                <li style="width: 70px; float: left;">
+                    <label for="boleto-banco">
+                        <img title="bb" style="width: 40px;" src="<?= $imgBaseUrl ?>bb-icon.png"><br>
+                        <input type="radio" name="payment[banco]" value="banco_do_brasil">
+                    </label>
+                </li>
+                <li style="width: 70px; float: left;">
+                    <label for="boleto-banco">
+                        <img title="bradesco" style="width: 40px;" src="<?= $imgBaseUrl ?>bradesco-icon.png"><br>
+                        <input type="radio" name="payment[banco]" value="bradesco">
+                    </label>
+                </li>
+                <li style="width: 70px; float: left;">
+                    <label for="boleto-banco">
+                        <img title="itau" style="width: 40px;" src="<?= $imgBaseUrl ?>itau-icon.png"><br>
+                        <input type="radio" name="payment[banco]" value="itau">
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</fieldset>
+<div>
+    <?php echo $this->getMethod()->getConfigData('message'); ?>
+</div>   

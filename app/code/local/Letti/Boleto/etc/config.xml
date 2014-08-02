@@ -1,0 +1,96 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+<config>
+      
+    <!-- Declaração do módulo -->
+    <modules>
+        <Letti_Boleto>
+            <version>0.1.0</version>
+        </Letti_Boleto>
+    </modules>
+    
+    <!-- Configurações globais do módulo -->
+    <global>
+       
+        <!-- Configurações das classes da camada model (MVC) -->
+        <models>
+            <boleto>
+                <!-- Define local onde estarão as classes model (Letti/Boleto/Model) -->
+                <class>Letti_Boleto_Model</class>
+            </boleto>
+        </models>
+        
+        <helpers>
+            <boleto>
+                <class>Letti_Boleto_Helper</class>
+            </boleto>
+        </helpers>
+            
+        <blocks>
+            <boleto>
+                <class>Letti_Boleto_Block</class>
+            </boleto>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_payment>Letti_Boleto_Block_Adminhtml_Sales_Order_Payment</sales_order_payment>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        
+        <!-- Configurações de conexão com o db -->
+        <resources>
+            <boleto_setup>
+                <setup>
+                    <module>Letti_Boleto</module>
+                    <connection>
+                        <use>core_setup</use>
+                    </connection>
+                </setup>
+            </boleto_setup>
+            <boleto_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </boleto_write>
+            <boleto_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </boleto_read>
+        </resources>
+	</global>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <boleto>
+                    <file>boleto.xml</file>
+                </boleto>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <!-- Configurações do frontend (interações com usuário) -->
+    <frontend>
+        <!-- Regras de roteamento de páginas (controllers) -->
+        <routers>
+            <!-- Módulo bolleto -->
+            <boleto>
+                <use>standard</use>
+                <args>
+                    <module>Letti_Boleto</module> <!-- diretório onde estão localizados os arquivos do módulo -->
+                    <frontName>boleto</frontName> <!-- nome utilizado para acessar a página ex: magento.com/boleto -->
+                </args>
+            </boleto>
+        </routers>
+        
+        <!-- Configurações do layout -->
+        <layout>
+            <updates>
+                <boleto>
+                    <!-- Nome do arquivo responsável pelo layout do módulo -->
+                    <file>boleto.xml</file> 
+                </boleto>
+            </updates>
+        </layout>
+	</frontend>
+</config>
