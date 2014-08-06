@@ -16,10 +16,15 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>0</show_in_store>
-                            
+                    
+                    <!-- Comentário -->
+                    <comment>
+                    <![CDATA[
+                    ]]>
+                    </comment>
+                    
                     <!-- Criação dos campos para configuração do módulo -->
                     <fields>
-
                         <active translate="label">
                             <label>Enabled</label>
                             <frontend_type>select</frontend_type>
@@ -38,6 +43,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </title>
+                        
+                        <checkout_message translate="label">
+                            <label>Mensagem que será exibida na página de pagamento</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </checkout_message>
                         
                         <codigo_empresa translate="label">
                             <label>Código da empresa</label>
@@ -74,14 +88,14 @@
                         </dias_vencimento>
                         
                         <url_retorno translate="label">
-                        	<label>URL de retorno</label>
-                        	<frontend_type>text</frontend_type>
-                        	<show_order>90</show_order>
+                            <label>URL de retorno</label>
+                            <frontend_type>text</frontend_type>
+                            <show_order>90</show_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store> 
                         </url_retorno>
-                                                
+                                                                            
                         <order_status translate="label">
                             <label>Alterar Status do Pedido Para</label>
                             <frontend_type>select</frontend_type>

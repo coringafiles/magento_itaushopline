@@ -1,107 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-      
-    <!-- Declaração do módulo -->
-    <modules>
-        <Letti_ItauShopline>
-            <version>0.1.0</version>
-        </Letti_ItauShopline>
-    </modules>
-    
-    <!-- Configurações globais do módulo -->
-    <global>
-       
-        <!-- Configurações das classes da camada model (MVC) -->
-        <models>
-            <itaushopline>
-                <!-- Define local onde estarão as classes model (Letti/itaushopline/Model) -->
-                <class>Letti_ItauShopline_Model</class>
-            </itaushopline>
-        </models>
-        
-        <helpers>
-            <itaushopline>
-                <class>Letti_ItauShopline_Helper</class>
-            </itaushopline>
-        </helpers>
-            
-        <blocks>
-            <itaushopline>
-                <class>Letti_ItauShopline_Block</class>
-            </itaushopline>
-            <adminhtml>
-                <rewrite>
-                    <sales_order_payment>Letti_ItauShopline_Block_Adminhtml_Sales_Order_Payment</sales_order_payment>
-                </rewrite>
-            </adminhtml>
-        </blocks>
-        
-        <!-- Configurações de conexão com o db -->
-        <resources>
-            <itaushopline_setup>
-                <setup>
-                    <module>Letti_ItauShopline</module>
-                    <connection>
-                        <use>core_setup</use>
-                    </connection>
-                </setup>
-            </itaushopline_setup>
-            <itaushopline_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </itaushopline_write>
-            <itaushopline_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </itaushopline_read>
-        </resources>
+	<modules>
+		<Letti_ItauShopline>
+			<version>0.1.0</version>
+		</Letti_ItauShopline>
+	</modules>
+	<global>
+		<models>
+			<itaushopline>
+				<class>Letti_ItauShopline_Model</class>
+			</itaushopline>
+		</models>
+		<resources>
+			<itaushopline_setup>
+				<setup>
+					<module>Letti_ItauShopline</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</itaushopline_setup>
+			<itaushopline_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</itaushopline_write>
+			<itaushopline_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</itaushopline_read>
+		</resources>
+		<blocks>
+			<itaushopline>
+				<class>Letti_ItauShopline_Block</class>
+			</itaushopline>
+			<adminhtml>
+				<rewrite>
+					<sales_order_payment>Letti_ItauShopline_Block_Adminhtml_Sales_Order_Payment</sales_order_payment>
+				</rewrite>
+			</adminhtml>
+		</blocks>
+		<helpers>
+			<itaushopline>
+				<class>Mage_Core_Helper</class>
+			</itaushopline>
+		</helpers>
 	</global>
-    
-    <adminhtml>
-        <layout>
-            <updates>
-                <itaushopline>
-                    <file>itaushopline.xml</file>
-                </itaushopline>
-            </updates>
-        </layout>
-    </adminhtml>
-    
-    <!-- Configurações do frontend (interações com usuário) -->
-    <frontend>
-        <!-- Regras de roteamento de páginas (controllers) -->
+	<frontend>
         <routers>
-            <!-- Módulo bolleto -->
             <itaushopline>
                 <use>standard</use>
                 <args>
-                    <module>Letti_ItauShopline</module> <!-- diretório onde estão localizados os arquivos do módulo -->
-                    <frontName>itaushopline</frontName> <!-- nome utilizado para acessar a página ex: magento.com/itaushopline -->
+                    <module>Letti_ItauShopline</module>
+                    <frontName>itaushopline</frontName>
                 </args>
             </itaushopline>
         </routers>
-        
-        <!-- Configurações do layout -->
-        <layout>
-            <updates>
-                <itaushopline>
-                    <!-- Nome do arquivo responsável pelo layout do módulo -->
-                    <file>itaushopline.xml</file> 
-                </itaushopline>
-            </updates>
-        </layout>
+		<layout>
+			<updates>
+				<itaushopline>
+					<file>letti/itaushopline.xml</file>
+				</itaushopline>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Letti_ItauShopline>
+					<files>
+						<default>Letti_ItauShopline.csv</default>
+					</files>
+				</Letti_ItauShopline>
+			</modules>
+		</translate>
 	</frontend>
-	
 	<default>
-        <payment>
-            <itaushopline>
-                <title>Itaú Shopline</title>
-                <active>1</active>
-                <model>itaushopline/itauShopline</model>
-                <order_status>pending</order_status>
-            </itaushopline>
-        </payment>
-    </default>
+		<payment>
+			<itaushopline>
+				<active>0</active>
+				<model>itaushopline/itauShopline</model>
+				<order_status>pending</order_status>
+				<title>Itaú Shopline</title>
+				<checkout_message>Page com boleto ou faça sua transferência online pelo banco Itaú.</checkout_message>
+			</itaushopline>
+		</payment>
+	</default>
 </config>
